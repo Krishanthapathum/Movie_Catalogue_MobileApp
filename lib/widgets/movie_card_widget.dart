@@ -13,9 +13,9 @@ class MovieCardWidget extends StatelessWidget {
 
   final String movieName;
   final String movieImage;
-  final String moviegenre;
-  final String movieyear;
-  final String movieimdb;
+  final List<String> moviegenre;
+  final int movieyear;
+  final double movieimdb;
   final String movieruntime;
 
   @override
@@ -33,7 +33,8 @@ class MovieCardWidget extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15.0),
                 image: DecorationImage(
-                  image: AssetImage(movieImage),
+                  image: NetworkImage(movieImage),
+                  // image: AssetImage(movieImage),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -78,7 +79,7 @@ class MovieCardWidget extends StatelessWidget {
                               color: Colors.white),
                         ),
                         Text(
-                          "Genre: $moviegenre",
+                          "Genre: ${moviegenre.toString().replaceAll('[', '').replaceAll(']', '')}",
                           style: const TextStyle(
                               fontSize: 10,
                               fontWeight: FontWeight.bold,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_catlog_mobileapp/src.dart';
 import 'package:movie_catlog_mobileapp/widgets/search_box.widget.dart';
 
 import '../widgets/movie_card_widget.dart';
@@ -120,13 +121,14 @@ class _HomePageState extends State<HomePage> {
             ),
             const SizedBox(height: 20.0),
             const Divider(),
-            const MovieCardWidget(
-                movieName: 'Black Panther',
-                movieImage: 'assets/mov1.png',
-                movieyear: '2023',
-                movieimdb: '8.5',
-                movieruntime: '2h 14m',
-                moviegenre: 'SuperHero/Adventure'),
+            MovieCardWidget(
+                movieName: moviesList[0]['title'],
+                movieImage: moviesList[0]['posterUrl'],
+                movieyear: moviesList[0]['year'],
+                movieimdb: moviesList[0]['imdb'],
+                movieruntime: moviesList[0]['runtime'],
+                moviegenre: moviesList[0]['genre']),
+            /*
             const SizedBox(height: 5),
             const MovieCardWidget(
                 movieName: 'Avatar 3',
@@ -151,6 +153,8 @@ class _HomePageState extends State<HomePage> {
                 movieimdb: '8.56',
                 movieruntime: '2h 02m',
                 moviegenre: 'SuperHero/Adventure'),
+
+                */
           ],
         ),
       ),
