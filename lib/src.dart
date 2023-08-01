@@ -71,12 +71,12 @@ List<Map<String, dynamic>> moviesList = [
         'In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.',
   },
   {
-    'title': 'https://i.ibb.co/3m6FGBf/12-Angry-Men.png',
+    'title': '12 Angry Men',
     'genre': ['Crime', 'Drama'],
     'year': 1957,
     'imdb': 8.9,
     'runtime': '1h 36m',
-    'posterUrl': 'https://example.com/posters/12_angry_men.jpg',
+    'posterUrl': 'https://i.ibb.co/3m6FGBf/12-Angry-Men.png',
     'description':
         'A jury holdout attempts to prevent a miscarriage of justice by forcing his colleagues to reconsider the evidence.',
   },

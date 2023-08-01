@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class MovieCardWidget extends StatelessWidget {
@@ -33,10 +34,9 @@ class MovieCardWidget extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15.0),
                 image: DecorationImage(
-                  image: NetworkImage(movieImage),
-                  // image: AssetImage(movieImage),
-                  fit: BoxFit.cover,
-                ),
+                    image: NetworkImage(movieImage), fit: BoxFit.cover
+                    // image: AssetImage(movieImage),
+                    ),
               ),
               child: Stack(
                 children: [
@@ -50,7 +50,7 @@ class MovieCardWidget extends StatelessWidget {
                           child: Opacity(
                             opacity: 0.6,
                             child: Container(
-                              width: devWidth * 0.87 / 2,
+                              width: devWidth * 0.87,
                               height: (devHeight * 0.3) / 3,
                               decoration: BoxDecoration(
                                 color: const Color.fromARGB(255, 0, 0, 0),
@@ -72,45 +72,102 @@ class MovieCardWidget extends StatelessWidget {
                       children: [
                         Text(
                           movieName,
+                          textAlign: TextAlign.center,
                           style: const TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
                               fontFamily: 'Montserrat',
                               color: Colors.white),
                         ),
-                        Text(
-                          "Genre: ${moviegenre.toString().replaceAll('[', '').replaceAll(']', '')}",
-                          style: const TextStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'Montserrat',
-                              color: Colors.white),
+                        const SizedBox(height: 10),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.movie,
+                                      color: Colors.amber,
+                                      size: 16,
+                                    ),
+                                    const SizedBox(width: 4),
+                                    Text(
+                                      "Genre: ${moviegenre.toString().replaceAll('[', '').replaceAll(']', '')}",
+                                      style: const TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'Montserrat',
+                                          color: Colors.white),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.timelapse,
+                                      color: Colors.amber,
+                                      size: 16,
+                                    ),
+                                    const SizedBox(width: 4),
+                                    Text(
+                                      "Run Time: $movieruntime",
+                                      style: const TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'Montserrat',
+                                          color: Colors.white),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.calendar_month,
+                                      color: Colors.amber,
+                                      size: 16,
+                                    ),
+                                    const SizedBox(width: 4),
+                                    Text(
+                                      "Year: $movieyear",
+                                      style: const TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'Montserrat',
+                                          color: Colors.white),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.star,
+                                      color: Colors.amber,
+                                      size: 16,
+                                    ),
+                                    const SizedBox(width: 4),
+                                    Text(
+                                      "IMDB: $movieimdb",
+                                      style: const TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'Montserrat',
+                                          color: Colors.white),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
-                        Text(
-                          "Run Time: $movieruntime",
-                          style: const TextStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'Montserrat',
-                              color: Colors.white),
-                        ),
-                        Text(
-                          "Year: $movieyear",
-                          style: const TextStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'Montserrat',
-                              color: Colors.white),
-                        ),
-                        Text(
-                          "IMDB: $movieimdb",
-                          style: const TextStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'Montserrat',
-                              color: Colors.white),
-                        ),
-                        const SizedBox(height: 5),
+                        const SizedBox(height: 3),
                       ],
                     ),
                   ),
